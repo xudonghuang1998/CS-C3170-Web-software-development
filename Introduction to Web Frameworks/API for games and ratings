@@ -1,0 +1,92 @@
+import { Application, Router } from "https://deno.land/x/oak@v6.3.2/mod.ts";
+import { Client } from "https://deno.land/x/postgres@v0.4.5/mod.ts";
+
+const client = new Client({
+});
+
+const app = new Application();
+const router = new Router();
+
+const executeQuery = async(query, ...args) => {
+  try {
+      await client.connect();
+      return await client.query(query, ...args);
+  } catch (e) {
+      console.log(e);
+  } finally {
+      await client.end();
+  }
+}
+
+const getGames = async({response}) => {
+  const result = await executeQuery('SELECT * FROM games');
+  let res = [];
+  if (result) {
+    res = result.rowsOfObjects();
+  }
+
+  response.body = res;
+}
+
+const getGame = async({response, params}) => {
+  const result = await executeQuery('SELECT * FROM games WHERE id = $1', params.id);
+  let res = [];
+  if (result) {
+    res = result.rowsOfObjects();
+  }
+
+  if (res.length > 0) {
+    response.body = res[0];
+  } else {
+    response.body = {};
+  }
+}
+
+const addGame = async({request, response}) => {
+  const body = request.body({type: 'json'});  
+  const document = await body.value;
+
+  await executeQuery('INSERT INTO games (name) VALUES ($1);', document.name);
+
+  response.body = {status: 'success'};
+}
+
+const deleteGame = async({params, response}) => {
+  await executeQuery('DELETE FROM ratings WHERE game_id = $1;', params.id);
+  await executeQuery('DELETE FROM games WHERE id = $1;', params.id);
+  response.body = {status: 'success'};
+}
+
+const addRating = async({params, request, response}) => {
+  const body = request.body({type: 'json'});  
+  const document = await body.value;
+
+  await executeQuery('INSERT INTO ratings (rating, game_id) VALUES ($1, $2);', document.rating, params.id);
+
+  response.body = {status: 'success'};
+}
+
+const getRatings = async({params, response}) => {
+  const result = await executeQuery('SELECT * FROM ratings WHERE game_id = $1;', params.id);
+  let res = [];
+  if (result) {
+    res = result.rowsOfObjects();
+  }
+
+  response.body = res;
+}
+
+router.get('/games', getGames);
+router.get('/games/:id', getGame);
+router.post('/games', addGame);
+router.delete('/games/:id', deleteGame);
+router.post('/games/:id/ratings', addRating);
+router.get('/games/:id/ratings', getRatings);
+
+app.use(router.routes());
+
+if (!Deno.env.get('TEST_ENVIRONMENT')) {
+  app.listen({ port: 7777 });
+}
+
+export default app;
