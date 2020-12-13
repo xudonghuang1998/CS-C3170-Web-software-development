@@ -39,11 +39,6 @@ The course expects some existing familiarity with command line tools (working wi
 + Architectural Decisions
 + Other Frameworks and Languages
 
-## Run the codes:
-To run the codes, type in the following command line in terminal where the directory that contains the application.
-
-``` $ deno run --allow-all app.js ```
-
 ## Database with built-in tables:
 ```
 const client = new Client({
@@ -54,3 +49,8 @@ const client = new Client({
     port: 5432
 });
 ```
+
+## Run the codes:
+To run the codes, type in the following command line in terminal where the directory that contains the application.
+
+``` $ deno run --allow-all app.js ```
