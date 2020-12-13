@@ -1,0 +1,22 @@
+<h1>Current turn:
+    <%= turn %>
+</h1>
+<table>
+    <% board.forEach((row, rowIndex) => { %>
+        <tr>
+            <% row.forEach((cell, columnIndex) => { %>
+                <td>
+                    <% if (!cell || cell === '') { %>
+                        <form method='POST'>
+                            <input type='hidden' name='x' value='<%= columnIndex %>'/>
+                            <input type='hidden' name='y' value='<%= rowIndex %>'/>
+                            <input type='submit' value=' '/>
+                        </form>
+                    <% } else { %>
+                        <%= cell %>
+                    <% } %>
+                </td>
+            <% }); %>
+        </tr>
+    <% }); %>
+</table>
