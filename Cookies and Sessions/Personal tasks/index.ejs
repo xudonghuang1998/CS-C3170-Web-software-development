@@ -1,0 +1,20 @@
+<h1>Personal tasks</h1>
+<form method='POST' action='/'>
+    <input type='text' name='name' />
+    <input type='submit' value='Add!' />
+</form>
+<ul>
+    <% tasks.forEach((task) => { %>
+        <li>
+            <%= task.name %>
+            <% if (task.completed) { %> 
+                (completed)
+            <% } else { %>
+                <form method='POST' action='/complete'>
+                    <input type='hidden' name='name' value='<%= task.name %>' />
+                    <input type='submit' value='Complete!' />
+                </form>
+            <% } %>
+        </li>
+    <% }); %>
+</ul>
