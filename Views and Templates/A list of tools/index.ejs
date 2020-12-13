@@ -1,0 +1,12 @@
+<%# 
+TODO: need to fix this indentation
+%>
+    <h1>TODO</h1>
+    <ul>
+        <% todos.forEach((todo) => { %>
+            <li>
+                <%= todo.name %> (
+                    <%= todo.done %>)
+            </li>
+            <% }); %>
+    </ul>
