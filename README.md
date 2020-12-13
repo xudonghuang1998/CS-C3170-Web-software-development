@@ -1,5 +1,5 @@
 # CS-C3170-Web-software-development
-The repository includes assignments source code for course CS-C3170-Web-software-development offered by Aalto University. 
+The repository includes my assignments source code for course CS-C3170-Web-software-development offered by Aalto University. 
 
 You can find the course contents on https://wsd.cs.aalto.fi/web-software-development/.
 
