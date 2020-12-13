@@ -1,0 +1,12 @@
+<h1>Files!</h1>
+<h2>Add file</h2>
+<form enctype="multipart/form-data" method="POST">
+  <input type="file" name="file" />
+  <input type="submit" value="Send file" />
+</form>
+<h2>Retrieve file</h2>
+<form method="POST" action="/files">
+  <input type="password" name="password" />
+  <input type="number" name="id" />
+  <input type="submit" value="Retrieve file" />
+</form>
