@@ -41,4 +41,4 @@ The course expects some existing familiarity with command line tools (working wi
 ## Run the codes:
 To run the codes, type in the following command line in terminal where the directory that contains the application.
 
-``` deno run --allow-all --unstable app.js ```
+``` $ deno run --allow-all --unstable app.js ```
