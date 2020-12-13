@@ -43,3 +43,13 @@ The course expects some existing familiarity with command line tools (working wi
 To run the codes, type in the following command line in terminal where the directory that contains the application.
 
 ``` $ deno run --allow-all app.js ```
+
+## Database with built-in tables:
+```
+const client = new Client({
+    hostname: "hattie.db.elephantsql.com",
+    database: "xlguwxko",
+    user: "xlguwxko",
+    password: "vOIJb7Qy3ubq_a1ovqH_uk7O3k1DBb2T",
+    port: 5432
+});```
