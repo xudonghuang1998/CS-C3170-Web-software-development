@@ -1,0 +1,17 @@
+h1 {
+    font-family: Helvetica;
+}
+
+p {
+    font-family: "Comic Sans MS";
+}
+
+#cats {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.cat {
+    margin: 10px;
+}
