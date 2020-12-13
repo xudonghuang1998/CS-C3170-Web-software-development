@@ -7,7 +7,7 @@ This course provides an overview of web application development with a focus on 
 The web applications rely on Deno, which is a runtime for running web applications written in JavaScript (and TypeScript). IDE such as VSCode or Intellij Idea is recommended. Naturally, as we work with web applications, browser Google Chrome is expected.
 
 ## Main contents:
-### Basics:
+### Basic:
 + Working Practices and Tooling
 + Introduction to the Internet
 + JavaScript Primer
@@ -37,3 +37,8 @@ The web applications rely on Deno, which is a runtime for running web applicatio
 + Other Frameworks and Languages
 
 The course expects some existing familiarity with command line tools (working with terminal), programming in general, and working with relational databases.
+
+## Run the codes:
+To run the codes, type in the following command line in terminal where the directory that contains the application.
+
+``` deno run --allow-all --unstable app.js ```
