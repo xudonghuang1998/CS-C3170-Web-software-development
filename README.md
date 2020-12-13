@@ -1,2 +1,6 @@
 # CS-C3170-Web-software-development
-sdsad
+The repository includes assignments source code for course CS-C3170-Web-software-development offered by Aalto University
+
+This course provides an overview of web application development with a focus on server-side web applications. There are many hands-on assignments helping you learn how web applications are constructed using a few web frameworks, and the key focus is on learning generic principles related to web development. It has been designed as a starting point for those who wish to become more familiar with developing web applications. 
+
+The course expects some existing familiarity with command line tools (working with terminal), programming in general, and working with relational databases.
